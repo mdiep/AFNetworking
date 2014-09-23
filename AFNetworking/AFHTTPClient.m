@@ -258,10 +258,6 @@ NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
         *stop = q <= 0.5f;
     }];
     [self setDefaultHeader:@"Accept-Language" value:[acceptLanguagesComponents componentsJoinedByString:@", "]];
-
-	[NSNotificationCenter.defaultCenter addObserverForName:NSThreadWillExitNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-		NSLog(@"thread will exit: %@", note.object);
-	}];
 	
     NSString *userAgent = nil;
 #pragma clang diagnostic push
