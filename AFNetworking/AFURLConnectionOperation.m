@@ -764,7 +764,7 @@ didReceiveResponse:(NSURLResponse *)response
             self.downloadProgress(length, self.totalBytesRead, self.response.expectedContentLength);
         }
     });
-	NSLog(@"%@-%@", NSStringFromSelector(_cmd), @(__LINE__));
+	NSLog(@"%@-%@ (%@)", NSStringFromSelector(_cmd), @(__LINE__), [NSThread currentThread]);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection __unused *)connection {

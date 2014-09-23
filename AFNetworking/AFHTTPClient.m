@@ -259,6 +259,10 @@ NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
     }];
     [self setDefaultHeader:@"Accept-Language" value:[acceptLanguagesComponents componentsJoinedByString:@", "]];
 
+	[NSNotificationCenter.defaultCenter addObserverForName:NSThreadWillExitNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+		NSLog(@"thread will exit: %@", note.object);
+	}];
+	
     NSString *userAgent = nil;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wgnu"
