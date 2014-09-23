@@ -729,7 +729,6 @@ didReceiveResponse:(NSURLResponse *)response
 - (void)connection:(NSURLConnection __unused *)connection
     didReceiveData:(NSData *)data
 {
-	NSLog(@"%@-%@", NSStringFromSelector(_cmd), @(__LINE__));
     NSUInteger length = [data length];
     while (YES) {
         NSUInteger totalNumberOfBytesWritten = 0;
@@ -769,7 +768,6 @@ didReceiveResponse:(NSURLResponse *)response
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection __unused *)connection {
-	NSLog(@"%@-%@", NSStringFromSelector(_cmd), @(__LINE__));
     self.responseData = [self.outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
     
     [self.outputStream close];
@@ -783,7 +781,6 @@ didReceiveResponse:(NSURLResponse *)response
 - (void)connection:(NSURLConnection __unused *)connection
   didFailWithError:(NSError *)error
 {
-	NSLog(@"%@-%@", NSStringFromSelector(_cmd), @(__LINE__));
     self.error = error;
     
     [self.outputStream close];
